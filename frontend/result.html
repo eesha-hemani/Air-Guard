@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Guard - Analysis</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<button class="sos-btn" type="button">SOS</button>
+
+<div class="internal-header">
+<a href="home.html"><img src="logo.png" class="header-logo" alt="Air Guard"></a>
+<h2 style="margin-top:10px;">Risk Analysis</h2>
+</div>
+
+<div class="main-content" style="justify-content:center;">
+<div class="card-container" style="max-width:500px; flex:none;">
+
+<div class="risk-circle">
+
+<span id="risk-score"
+style="font-size:3rem;font-weight:bold;color:var(--darkest-green);">
+--
+</span>
+
+<span id="risk-label"
+style="font-size:0.8rem;letter-spacing:1px;color:var(--mid-green);font-weight:bold;">
+CALCULATING
+</span>
+
+</div>
+
+<div class="stat-bar">
+
+<div>
+<small style="color:#888;">AQI</small><br>
+<strong id="aqi" style="font-size:1.2rem;">--</strong>
+</div>
+
+<div>
+<small style="color:#888;">TEMP</small><br>
+<strong id="temp" style="font-size:1.2rem;">--</strong>
+</div>
+
+<div>
+<small style="color:#888;">HUMID</small><br>
+<strong id="humidity" style="font-size:1.2rem;">--</strong>
+</div>
+
+</div>
+<h3>Risk Interpretation</h3>
+<div id="risk-summary" style="line-height:1.7;color:#ece4e4;margin:20px 0;">
+<ul id="summary-points"></ul>
+</div>
+
+<button id="download-report" class="btn btn-primary" style="width:100%;margin-top:15px;">
+Download Detailed PDF Report
+</button>
+
+<div style="display:flex;gap:15px;margin-top:20px;">
+
+<button onclick="location.href='risk.html'" class="btn btn-outline" style="flex:1">
+Update Data
+</button>
+
+<button onclick="location.href='home.html'" class="btn btn-primary" style="flex:1">
+Logout
+</button>
+
+</div>
+
+</div>
+</div>
+
+<script src="sos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script type="module" src="../js/main.js"></script>
+
+</body>
+</html>

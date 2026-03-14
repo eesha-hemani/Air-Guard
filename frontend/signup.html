@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Guard - Signup</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            /* Updated Background to bg1.jpg */
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('bg1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+            backdrop-filter: blur(5px);
+        }
+
+        .internal-header { margin-bottom: 1.5rem; }
+
+        .header-logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 0.5rem;
+            border-radius: 50%; /* Matches circular logo style */
+            border: 2px solid #1B5E3A;
+        }
+
+        h2 {
+            color: #1B5E3A;
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: 0.3s;
+            box-sizing: border-box;
+            background: #fdfdfd;
+        }
+
+        input:focus {
+            border-color: #1B5E3A;
+            box-shadow: 0 0 8px rgba(27,94,58,0.2);
+            outline: none;
+        }
+
+        /* Updated Heading Colors to Green */
+        h3 {
+            margin-top: 1.8rem;
+            color:  #185e34; 
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid ;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+h1 {
+            color: #1B5E3A;
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        h2 {
+            color: #1B5E3A;
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .selection-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 0.5rem;
+        }
+
+        .check-card {
+            background: #f0fdf4;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            border: 1px solid #e0f2f1;
+            color: #1B5E3A;
+            font-weight: 500;
+        }
+
+        .check-card input { width: auto; margin-right: 10px; }
+
+        .check-card:hover {
+            background: #dcfce7;
+            border-color: #1B5E3A;
+            transform: scale(1.02);
+        }
+
+        .btn-add-med {
+            background: none;
+            border: 2px dashed #1B5E3A;
+            color: #1B5E3A;
+            padding: 12px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 10px 0 25px;
+            transition: 0.3s;
+        }
+
+        .btn-add-med:hover { 
+            background: #1B5E3A; 
+            color: white; 
+        }
+
+        .btn-primary {
+            background: #1B5E3A;
+            color: #fff;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(27,94,58,0.3);
+        }
+
+        .btn-primary:hover {
+            background: #2E7D5C;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(27,94,58,0.4);
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="internal-header">
+            <a href="home.html">
+                <img src="logo.png" class="header-logo" alt="Air Guard Logo">
+            </a>
+            <h1>Join Air Guard</h1>
+        </div>
+
+        <form id="signupForm">
+            <input type="text" id="username" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="password" id="password" placeholder="Create Password" required>
+            
+            <input type="email" id="emergencyEmail" placeholder="SOS Emergency Contact Email" required style="border: 2px solid #ff4d4d; background: #fff5f5;">
+
+            <h2>Allergen Triggers</h2>
+            <div class="selection-grid">
+                <label class="check-card"><input type="checkbox" value="Pollen"> Pollen</label>
+                <label class="check-card"><input type="checkbox" value="Pet Danders"> Pet Danders</label>
+                <label class="check-card"><input type="checkbox" value="Mold"> Mold</label>
+                <label class="check-card"><input type="checkbox" value="Dust Mites"> Dust Mites</label>
+                <label class="check-card"><input type="checkbox" value="Smoke"> Smoke</label>
+                <label class="check-card"><input type="checkbox" value="Perfume"> Perfume</label>
+                <label class="check-card"><input type="checkbox" value="Cold Air"> Cold Air</label>
+                <label class="check-card"><input type="checkbox" value="Exercise"> Exercise</label>
+            </div>
+
+            <h2>Medicine Schedule</h2>
+            <div id="med-input-list">
+                <div class="med-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <input type="text" placeholder="e.g. Inhaler" class="med-name" style="flex: 2;">
+                    <input type="time" class="med-time" style="flex: 1.2;"> 
+                </div>
+            </div>
+
+            <button type="button" class="btn-add-med" onclick="addNewMedRow()">+ Add More Medication</button>
+
+            <button type="submit" class="btn-primary">Create Profile & Start</button>
+        </form>
+    </div>
+
+    <script>
+        function addNewMedRow() {
+            const container = document.getElementById('med-input-list');
+            const row = document.createElement('div');
+            row.className = 'med-row';
+            row.style.display = 'flex';
+            row.style.gap = '10px';
+            row.style.marginBottom = '10px';
+            row.innerHTML = `
+                <input type="text" placeholder="Medication Name" class="med-name" style="flex: 2;">
+                <input type="time" class="med-time" style="flex: 1.2;">
+            `;
+            container.appendChild(row);
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const email = document.getElementById('email').value;
+            const emergencyEmail = document.getElementById('emergencyEmail').value;
+            let registeredEmails = JSON.parse(localStorage.getItem("all_registered_emails")) || [];
+            
+            if (registeredEmails.includes(email)) {
+                alert("This email is already registered!");
+                return;
+            }
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const medications = [];
+            const rows = document.querySelectorAll('.med-row');
+            rows.forEach(row => {
+                const name = row.querySelector('.med-name').value;
+                const time = row.querySelector('.med-time').value;
+                if (name && time) {
+                    medications.push({ name: name, time: time });
+                }
+            });
+
+            const allergens = [];
+            document.querySelectorAll('.selection-grid input[type="checkbox"]:checked').forEach(cb => {
+                allergens.push(cb.value);
+            });
+
+            localStorage.setItem("username", username);
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+            localStorage.setItem("emergency_email", emergencyEmail);
+            localStorage.setItem("allergens", JSON.stringify(allergens));
+            localStorage.setItem("medications", JSON.stringify(medications));
+
+            registeredEmails.push(email);
+            localStorage.setItem("all_registered_emails", JSON.stringify(registeredEmails));
+
+            window.location.href = 'risk.html';
+        });
+    </script>
+</body>
+</html>

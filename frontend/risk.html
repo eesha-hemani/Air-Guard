@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Guard - Risk Assessment</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<button class="sos-btn" type="button">SOS</button>
+
+<div class="internal-header">
+<a href="home.html">
+<img src="logo.png" class="header-logo" alt="Air Guard">
+</a>
+<h2 style="margin-top:10px;">Symptom Check</h2>
+</div>
+
+<div class="main-content" style="justify-content:center;">
+<div class="card-container" style="max-width:550px;flex:none;">
+
+<h3 style="color:var(--darkest-green);margin-bottom:10px;">
+How are you feeling?
+</h3>
+
+<p style="color:#666;margin-bottom:25px;">
+Select any symptoms you are currently experiencing.
+</p>
+
+<!-- SYMPTOM SELECTION -->
+
+<div class="selection-grid">
+
+<label class="check-card">
+<input type="checkbox" name="symptom" value="cough_night">
+Coughing at Night
+</label>
+
+<label class="check-card">
+<input type="checkbox" name="symptom" value="cough_exercise">
+Coughing During Exercise
+</label>
+
+<label class="check-card">
+<input type="checkbox" name="symptom" value="chest_tightness">
+Tightness in Chest
+</label>
+
+<label class="check-card">
+<input type="checkbox" name="symptom" value="shortness_breath">
+Shortness of Breath
+</label>
+
+<label class="check-card">
+<input type="checkbox" name="symptom" value="trouble_talking">
+Trouble Talking
+</label>
+
+<label class="check-card">
+<input type="checkbox" name="symptom" value="panic_anxiety">
+Panic / Anxiety
+</label>
+
+<label class="check-card">
+<input type="checkbox" name="symptom" value="fatigue">
+Fatigue
+</label>
+
+<label class="check-card">
+<input type="checkbox" name="symptom" value="chest_pain">
+Chest Pain
+</label>
+
+</div>
+
+<!-- ANALYZE BUTTON -->
+
+<button id="analyzeBtn" type="button" class="btn btn-primary" style="margin-top:25px;width:100%;">
+Analyze My Risk
+</button>
+
+</div>
+</div>
+
+<!-- SCRIPTS -->
+
+<script src="sos.js"></script>
+<script type="module" src="../js/main.js"></script>
+
+</body>
+</html>

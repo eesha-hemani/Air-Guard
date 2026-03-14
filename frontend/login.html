@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Air Guard - Login</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('bg1.jpg');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+margin:0;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+height:100vh;
+}
+
+/* Card */
+
+.card-container{
+
+background:rgba(255,255,255,0.92);
+backdrop-filter:blur(10px);
+
+padding:2.5rem;
+
+border-radius:25px;
+
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+
+width:100%;
+max-width:420px;
+
+text-align:center;
+
+border:1px solid rgba(255,255,255,0.3);
+
+animation:fadeIn 0.7s ease;
+}
+
+/* Header */
+
+.internal-header{margin-bottom:20px;}
+
+.header-logo{
+width:90px;
+height:90px;
+border-radius:50%;
+border:2px solid #1B5E3A;
+margin-bottom:10px;
+}
+
+h2{
+color:#1B5E3A;
+margin:0;
+}
+
+/* Inputs */
+
+input{
+
+width:100%;
+padding:12px;
+
+margin:8px 0;
+
+border:1px solid #ddd;
+border-radius:10px;
+
+background:#fdfdfd;
+}
+
+input:focus{
+border-color:#1B5E3A;
+outline:none;
+}
+
+/* Medication section */
+
+.med-update-section{
+
+margin-top:20px;
+
+padding:15px;
+
+background:#f0fdf4;
+
+border:1px dashed #1B5E3A;
+
+border-radius:12px;
+
+text-align:left;
+}
+
+.med-update-section label{
+
+font-size:0.8rem;
+
+font-weight:bold;
+
+color:#1B5E3A;
+
+display:block;
+
+margin-bottom:10px;
+}
+
+.med-row{
+display:flex;
+gap:8px;
+margin-bottom:8px;
+}
+
+/* Buttons */
+
+.btn-add-med{
+
+background:white;
+
+border:1px solid #1B5E3A;
+
+color:#1B5E3A;
+
+padding:8px;
+
+width:100%;
+
+border-radius:8px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+margin-top:5px;
+
+font-size:0.75rem;
+}
+
+.btn-primary{
+
+margin-top:20px;
+
+background:#1B5E3A;
+
+color:white;
+
+border:none;
+
+padding:16px;
+
+width:100%;
+
+border-radius:50px;
+
+font-size:16px;
+
+font-weight:bold;
+
+cursor:pointer;
+}
+
+.btn-primary:hover{
+background:#2E7D5C;
+}
+
+/* Footer */
+
+.footer-link{
+margin-top:20px;
+font-size:0.9rem;
+}
+
+.footer-link a{
+color:#1B5E3A;
+font-weight:bold;
+text-decoration:none;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card-container">
+
+<div class="internal-header">
+<a href="home.html">
+<img src="logo.png" class="header-logo">
+</a>
+
+<h2>Welcome Back</h2>
+</div>
+
+<form id="loginForm">
+
+<input type="email" id="loginEmail" placeholder="Email Address" required>
+
+<input type="password" id="loginPassword" placeholder="Password" required>
+
+
+<div class="med-update-section">
+
+<label>Add Medication Reminder</label>
+
+<div id="login-med-input-list">
+
+<div class="med-row">
+<input type="text" placeholder="Medication Name" class="med-name">
+<input type="time" class="med-time">
+</div>
+
+</div>
+
+<button type="button" class="btn-add-med" onclick="addMedRow()">+ Add Another</button>
+
+</div>
+
+<button type="submit" class="btn-primary">Login to Dashboard</button>
+
+</form>
+
+<p class="footer-link">
+New to Air Guard? <a href="signup.html">Create Account</a>
+</p>
+
+</div>
+
+<script>
+
+/* Add new medication row */
+
+function addMedRow(){
+
+const container=document.getElementById("login-med-input-list");
+
+const row=document.createElement("div");
+
+row.className="med-row";
+
+row.innerHTML=`
+<input type="text" placeholder="Medication Name" class="med-name">
+<input type="time" class="med-time">
+`;
+
+container.appendChild(row);
+}
+
+/* Login logic */
+
+document.getElementById("loginForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const email=document.getElementById("loginEmail").value;
+const pass=document.getElementById("loginPassword").value;
+
+const storedEmail=localStorage.getItem("email");
+const storedPass=localStorage.getItem("password");
+
+if(email===storedEmail && pass===storedPass){
+
+/* Collect medications */
+
+let meds=[];
+
+document.querySelectorAll(".med-row").forEach(row=>{
+
+const name=row.querySelector(".med-name").value.trim();
+const time=row.querySelector(".med-time").value;
+
+if(name && time){
+
+meds.push({name:name,time:time});
+
+}
+
+});
+
+/* Save medications */
+
+if(meds.length>0){
+
+localStorage.setItem("medications",JSON.stringify(meds));
+
+}
+
+/* Save current user */
+
+localStorage.setItem("currentUserEmail",email);
+
+/* Redirect */
+
+window.location.href="risk.html";
+
+}
+
+else{
+
+alert("Invalid email or password");
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
